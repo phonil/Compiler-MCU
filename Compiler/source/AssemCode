@@ -1,0 +1,63 @@
+		.header
+		sum 0
+		count 4
+		i 8
+
+		.code
+		
+		move mar @sum
+		move mbr 0
+		sto
+		
+		move mar @count
+		move mbr 10
+		sto
+		
+		move mar @i
+		move mbr 0
+		sto
+		
+start:
+// read i
+		move mar @i
+		load
+		move r0 mbr
+// read count
+		move mar @count
+		load
+		move r1 mbr
+// i - count
+		sub r0 r1
+// i >= count then jump to end
+		jumpGE end
+// read sum
+		move mar @sum
+		load
+		move r0 mbr
+// read i
+		move mar @i
+		load
+		move r1 mbr
+// sum + i
+		add r0 r1
+// sum = (sum + i) ==> r0
+		move mar @sum
+		move mbr r0
+		sto
+// i++
+		move mar @i
+		load
+		move r0 mbr
+
+		move r1 1
+
+		add r0 r1
+
+		move mar @i
+		move mbr r0
+		sto
+
+		jump start
+end:
+		halt
+		.end

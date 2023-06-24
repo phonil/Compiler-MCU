@@ -1,0 +1,104 @@
+		.header
+		stuNum 0
+		student 4
+		sum 8
+		avg 12
+		
+		.code
+
+// int stuNum = sc.nextInt()
+		loada #1
+		storea @stuNum
+		
+// int sum = student.sum(60, 70)
+		loads [0]
+
+		push #0
+		
+// dynamic link
+		stores [16]
+		
+		loadc #60
+		stores [4]
+		loadc #70
+		stores [8]
+ // #line
+		loadc #12
+		
+// return address 
+		stores [20]
+		 
+		jump ()sum
+		loads [0]
+		storea @sum
+		
+		pop #0
+
+// int avg = student.avg(60, 70)	
+		loads [0]
+		push #28
+		
+// dynamic link
+		stores [16]
+		
+		loadc #60
+		stores [4]
+		loadc #70
+		stores [8]
+// #line
+		loadc #25
+		
+// return address
+		stores [20]
+		
+		jump ()avg
+		loads [0]
+		storea @avg
+		
+		pop #28
+		
+//		out @sum
+		
+		halt
+// .end
+		
+		.stack
+		
+// Activation Record
+
+	sum:
+		loadc #60
+		stores [4]
+		
+		loadc #70
+		stores [8]
+		
+		loadc #60
+		addc #70
+		stores [24]
+		
+		loads [24]
+		stores [0]
+		
+		jumps [20]
+		
+	avg:
+		loadc #60
+		stores [4]
+		
+		loadc #70
+		stores [8]
+		
+		loadc #60
+		addc #70
+		divc #2
+		stores [24]
+		
+		loads [24]
+		stores [0]
+		
+		jumps [20]
+		
+		.end
+		
+		

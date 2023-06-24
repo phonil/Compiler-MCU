@@ -1,0 +1,70 @@
+		.Header
+		$DS 12
+		count 0
+		sum 4
+		i 8
+		$SS 0			
+		$HS 0			
+
+		.Code
+
+		mov mar @count
+		mov mbr 10
+		sto			
+
+		mov mar @sum
+		mov mbr 0
+		sto
+
+
+		mov mar @i
+		mov mbr 0
+		sto
+
+start:		
+
+		mov mar @i
+
+		lda 
+		mov ac1 mbr
+
+		mov mar @count
+		lda
+		mov ac2 mbr
+
+
+		mov mar @count
+		lda
+		mov ac2 mbr
+
+
+		sub ac1 ac2
+
+		gtj end
+
+		mov mar @sum
+		lda
+		mov ac1 mbr
+
+		mov ac2 1
+			
+
+		add ac1 ac2
+		mov mar @sum
+		mov mar ac1
+		sto
+		jump start
+			
+end:	halt
+		.end
+		
+//sub @i @count // for 문 속 i < count 검사
+//	gtj end //
+//	loa @sum //
+//	mov ac mbr // 
+//	add 1 //
+//	mov mbr ac //
+//	sto @sum //
+//	jump start //
+//end: halt
+
